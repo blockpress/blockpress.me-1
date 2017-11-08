@@ -1,17 +1,17 @@
 set -euo pipefail
 declare SLEEP_DURATION=${SLEEP_DURATION:-"1m"}
 cd /opt
-mkdir -p src/github.com/miblodge
-cd src/github.com/miblodge
-if [[ ! -e projectb ]]; then
+mkdir -p src/github.com/blockpress
+cd src/github.com/blockpress
+if [[ ! -e blockpress.me ]]; then
 	echo "[ $(basename "$0") ] Doing initial git clone.."
-	git clone https://github.com/miblodge/projectb
+	git clone https://github.com/blockpress/blockpress.me.git
 fi
 if [[ ! -e /var/www ]]; then
 	echo "[ $(basename "$0") ] Creating symlink.."
-	ln -s /opt/src/github.com/miblodge/projectb /var/www
+	ln -s /opt/src/github.com/blockpress/blockpress.me /var/www
 fi
-cd projectb
+cd blockpress.me
 while true; do
 	echo "[ $(basename "$0") ] Pulling down any changes.."
 	git pull
