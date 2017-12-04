@@ -13,5 +13,7 @@ RUN go vet && \
     go install ./redirector/...
 USER root
 WORKDIR /home/go/bin
-CMD ["mv", "-v", "blockpress.me", "redirector", "/build/"]
+CMD mv -v blockpress.me /build/ && \
+    mv -v redirector /build/
+
 
