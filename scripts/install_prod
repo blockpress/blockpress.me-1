@@ -8,4 +8,5 @@ echo "[ $(basename "$0") ] Updating systemd units.."
 cp units/*.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl restart redirector blockpress refresh
+systemctl enable blockpress refresh
 echo "[ $(basename "$0") ] All done."
