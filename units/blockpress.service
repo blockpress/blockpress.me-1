@@ -3,7 +3,9 @@ Description=blockpress.me server
 After=network-online.target
 
 [Service]
-Environment=BLOCKPRESS_ADDR=":443"
+# todo: re-enable https if issues with autocert can be resolved:
+# https://github.com/orgs/blockpress/teams/blockpress-developers/discussions/4
+Environment=BLOCKPRESS_ADDR=":80"
 ExecStart=/opt/bin/blockpress.me
 Restart=always
 
