@@ -7,6 +7,9 @@ install scripts/refresh_static_content /opt/bin
 echo "[ $(basename "$0") ] Updating systemd units.."
 cp units/*.service /etc/systemd/system/
 systemctl daemon-reload
-systemctl restart redirector blockpress refresh
+# todo: re-enable redirector.service once autocert issues have been resolved
+# and we're serving https again:
+# https://github.com/orgs/blockpress/teams/blockpress-developers/discussions/4?from_comment=3
+systemctl restart blockpress refresh
 systemctl enable blockpress refresh
 echo "[ $(basename "$0") ] All done."
