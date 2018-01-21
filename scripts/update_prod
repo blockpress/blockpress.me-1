@@ -1,6 +1,4 @@
 set -euo pipefail
 bash build
-# todo: drop awful workaround of explicitly setting key to avoid "too many identification failures"
-# caused by overly aggressive coreos openssh config + many ssh identities in agent
-scp -o "IdentitiesOnly=yes" -i ~/.ssh/admin1_blockpress_me -r bin scripts units core@blockpress.me:
-ssh -o "IdentitiesOnly=yes" -i ~/.ssh/admin1_blockpress_me core@blockpress.me sudo bash scripts/install_prod
+scp -r bin scripts units core@blockpress.me:
+ssh core@blockpress.me sudo bash ./scripts/install_prod
