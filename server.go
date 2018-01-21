@@ -2,8 +2,8 @@
 package main
 
 import (
-	"fmt"
 	"crypto/tls"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -47,8 +47,8 @@ func main() {
 	http.Handle("/", multiHostHandler{fh})
 
 	addr := os.Getenv("BLOCKPRESS_ADDR")
-        if addr == "" {
-	    addr = ":8080"
+	if addr == "" {
+		addr = ":8080"
 	}
 	s := &http.Server{
 		Addr: addr,
