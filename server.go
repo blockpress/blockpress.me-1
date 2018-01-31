@@ -67,7 +67,6 @@ func main() {
 			Handler: m.HTTPHandler(nil),
 			Addr:    ":80",
 		}
-		// TODO: this tcp/80 server also needs to handle redirects.
 		go httpServer.ListenAndServe()
 
 		s.TLSConfig = &tls.Config{GetCertificate: m.GetCertificate}
