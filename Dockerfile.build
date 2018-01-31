@@ -3,14 +3,18 @@
 #
 FROM hkjn/golang:tip
 
+# TODO: should not assume we're always targeting linux/amd64 architecture.
 ENV CGO_ENABLED=0 \
     GOOS=linux \
     GOARCH=amd64
+
 WORKDIR /home/go/src/hkjn.me/blockpress.me/
 COPY *.go ./
 COPY ["vendor", "./vendor"]
+
 RUN go vet && \
-    go install && \
+    go install
+
 USER root
 WORKDIR /home/go/bin/linux_amd64/
 CMD mv -v blockpress.me /build/
