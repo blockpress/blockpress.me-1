@@ -3,7 +3,7 @@ Description=Hacky CI/CD for blockpress.me
 After=network-online.target
 
 [Service]
-Environment=SLEEP_DURATION=1m
+Environment=SLEEP_DURATION=5m
 ExecStart=/bin/bash /opt/bin/refresh_static_content
 Restart=always
 
